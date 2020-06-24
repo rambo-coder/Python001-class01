@@ -9,4 +9,3 @@ myurl = 'https://movie.douban.com/top250'
 response = requests.get(myurl,headers=header)
 
 print(response.text)
-print(f'返回码是: {response.status_code}')

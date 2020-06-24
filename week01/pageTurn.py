@@ -12,12 +12,5 @@ def get_url_name(myurl):
             print(atag.get('href'))
             print(atag.find('span').text)
 
-urls = tuple(f'https://movie.douban.com/top250?start={ page *25}&filter=' for page in range(10))
 
-print(urls)
-
-from time import sleep
-
-for page in urls:
-    get_url_name(page)
-    sleep(5)
+url = "maoyan.com/films?showType=3&offset=0"
