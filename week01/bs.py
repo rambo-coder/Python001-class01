@@ -8,6 +8,7 @@ myurl = "https://maoyan.com/films?showType=3&offset=0"
 # myurl = "https://movie.douban.com/top250"
 response = requests.get(myurl,headers=header)
 bs_info = bs(response.text, 'html.parser')
+
 # print(1)
 # for tags in bs_info.find_all('div',attrs={'class':'hd'}):
 #     for atag in tags.find_all('a'):
@@ -19,24 +20,25 @@ bs_info = bs(response.text, 'html.parser')
 # for atag in bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find_all('div'):
 #     print(atag.text)
 # lis = []
-print(bs_info.find_all('div',attrs={'class':'movie-hover-info'}))
-# lis = []
-# for tags in bs_info.find_all('div',attrs={'class':'movie-hover-info'})[:9]:
-#     print(1)
-    # name = bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find('div').find('span').text
-    # tp = bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find_all('div')[1].text
-    # print(tp)
-    # tp = "".join(tp.split())
-    # print(tp)
-    # tp = tp.split(':')[1]
-    # plan_time = bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find_all('div')[-1].text
-    # plan_time = "".join(plan_time.split())
-    # plan_time = plan_time.split(':')[1]
-    # lis.append([name,tp,plan_time])
+# print(bs_info.find_all('div',attrs={'class':'movie-hover-info'}))
+l = []
+for tags in bs_info.find_all('div',attrs={'class':'movie-hover-info'}):
+      name = tags.find('div').find('span').text
+      name = "".join(name.split())
+      tp = tags.find_all('div')[1].text
+      tp = "".join(tp.split())
+      tp = tp.split(':')[1]
+      plan_time = tags.find_all('div')[-1].text
+      plan_time = "".join(plan_time.split())
+      plan_time = plan_time.split(':')[1]
+      l.append([name,tp,plan_time])
+      
 
-# col = ['name','movie_type','plan_time']
-# frame = pd.DataFrame(columns=col,data=lis)
-# frame.to_csv('./maoyan.csv')
+    
+
+col = ['name','movie_type','plan_time']
+frame = pd.DataFrame(columns=col,data=l[:10])
+frame.to_csv('./maoyan.csv',encoding='utf-8',index=True)
 
 # print(bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find('div').find('span').text)
 # a = bs_info.find_all('div',attrs={'class':'movie-hover-info'})[0].find_all('div')[1].text
