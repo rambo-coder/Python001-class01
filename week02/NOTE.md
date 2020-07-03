@@ -8,3 +8,7 @@
 然后，添加代码：
 location = os.getcwd()+'/fake_useragent.json'
 ua = Useragent(path=location)
+
+
+二：学习记录
+1.git push -u origin master
