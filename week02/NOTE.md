@@ -48,4 +48,15 @@ four：session是服务器生成的，存储在服务器的数据库或者文件
 
 five：session是存在cookie中的。
 
+**5.windows mysql 启动**
+one: 已管理员身份启动cmd
+two：找到已解压的mysql文件夹，进入该文件目录，例如：cd C:\Users\I506596\Downloads\mysql-8.0.20-winx64\bin
+three：mysql -u root -p
 
+6. 爬虫过程：
+
+one.  scrapy startproject <爬虫名称>
+eg: scrapy startproject proxyspider
+two. cd proxyspider/proxyspider
+three. scrapy genspider httpbin httpbin.org
+four. 找到cfg所在目录，在此目录执行 scrapy crawl httpbin
