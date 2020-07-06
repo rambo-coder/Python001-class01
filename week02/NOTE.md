@@ -19,6 +19,16 @@ ua = Useragent(path=location)
 1.github.com/tesseract-ocr/tesseract/wiki 下载
 2.将pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe" 添加到代码中。
 
+4.error: You have not concluded your merge (MERGE_HEAD exists).hint: Please, commit your changes before merging.
+fatal: Exiting because of unfinished merge.
+解决办法：
+git reset --hard origin/master 放弃本地修改
+
+5.mac 删除mysql 并重新安装
+https://blog.csdn.net/killerabby/article/details/88651690
+
+https://blog.csdn.net/youzhouliu/article/details/80782892
+
 
 
 二：学习记录

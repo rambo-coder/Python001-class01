@@ -52,9 +52,15 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'proxyspider.middlewares.ProxyspiderDownloaderMiddleware': 543,
-   'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 400,
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 400,
+   'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'proxyspider.middlewares.RandomHttpProxyMiddleware':400,
 }
+HTTP_PROXY_LIST= [
+    '1.255.48.197;8080',
+    '101.37.118.54:8888',
+    '101.4.136.34:81'
+]
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
