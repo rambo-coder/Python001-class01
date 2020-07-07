@@ -1,4 +1,4 @@
-# Scrapy settings for proxyspider project
+# Scrapy settings for maoyanspider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'proxyspider'
+BOT_NAME = 'maoyanspider'
 
-SPIDER_MODULES = ['proxyspider.spiders']
-NEWSPIDER_MODULE = 'proxyspider.spiders'
+SPIDER_MODULES = ['maoyanspider.spiders']
+NEWSPIDER_MODULE = 'maoyanspider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'proxyspider (+http://www.yourdomain.com)'
+#USER_AGENT = 'maoyanspider (+http://www.yourdomain.com)'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,23 +45,21 @@ DOWNLOAD_DELAY = 1
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'proxyspider.middlewares.ProxyspiderSpiderMiddleware': 543,
+#    'maoyanspider.middlewares.MaoyanspiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'proxyspider.middlewares.ProxyspiderDownloaderMiddleware': 543,
-   'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'proxyspider.middlewares.RandomHttpProxyMiddleware':400,
+   'maoyanspider.middlewares.MaoyanspiderDownloaderMiddleware': 543,
+    'maoyanspider.middlewares.RandomHttpProxyMiddleware':400
 }
-HTTP_PROXY_LIST= [
+
+HTTP_PROXY_LIST = [
     '1.255.48.197;8080',
     '101.37.118.54:8888',
-    '101.4.136.34:81'
+    '101.4.136.34:81',
 ]
-
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
@@ -70,9 +68,9 @@ HTTP_PROXY_LIST= [
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'proxyspider.pipelines.ProxyspiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'maoyanspider.pipelines.MaoyanspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
